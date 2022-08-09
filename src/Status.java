@@ -2,8 +2,7 @@ public enum Status {
 
 	NOT_STARTED,
 	IN_PROCESS,
-	COMPLETE,
-	
+	COMPLETE
 	
 	
 }//end enum status

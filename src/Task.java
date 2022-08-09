@@ -4,20 +4,20 @@ public class Task implements Priority, Comparable <Task>{
 	protected int priority;
 	private Status stat;
 	
-	private enum Status{NOT_STARTED, IN_PROCESS, COMPLETE}
+	
 	
 	public Task () {
 		this.name = "";
 		this.priority = 0;
-		this.stat = Status.COMPLETE;
+		this.stat = Status.NOT_STARTED;
 		
 	}//end empty argument constructor
 	
-	public Task (String name, int priority, Status stat) {
+	public Task (String name) {
 		
 		this.setName(name);
-		this.setPriority(priority);
-		this.setStat(stat);
+		this.priority = 0;
+		this.stat = Status.NOT_STARTED;
 		
 	}//end preferred constructor 
 		
@@ -54,19 +54,22 @@ public class Task implements Priority, Comparable <Task>{
 		return "Task [name=" + name + ", priority=" + priority + ", stat=" + stat + "]";
 	}
 
-	@Override
-	public void getPriority(int priority) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public int compareTo(Task o) {
 		
 		if (this.getPriority() == o.getPriority())
-		return 1;
+			return 1;
+		
 		return -1;
-		}
+		}//end compareTo
+
+	@Override
+	public void getPriority(int priority) {
+		this.priority = priority;
+		
+	}
 		
 
 	}//end class
